@@ -106,16 +106,16 @@
 		<subdialog name="SarahSubdialog" fetchhint="prefetch"  src="../src-gen/Sara.vxml">
     		<param name="varActionParentId" expr="''"/>
 			<filled>
-				<goto next="#Prompt1" />
+				<goto next="#prompt2" />
 			</filled>
 		</subdialog>
 		
 	</form>
 
 	<!-- This is the Prompt block -->
-	<form id="Prompt1">
+	<form id="prompt2">
         
-    	<block name="Prompt1P0">
+    	<block name="prompt2P0">
   			<prompt bargein="true"  gvp:langexpr="AppState.APP_LANGUAGE">
 				<audio expr="getAudioURI('HI.WAV')"></audio>
     		</prompt>

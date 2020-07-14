@@ -32,7 +32,7 @@
     </blocks>
     <blocks xmi:type="gvp:ExitBlock" xmi:id="_UiSp4Nz8EeKItrUHz40pEQ" name="Exit1" terminating="true" category="Exit" returnMode="false"/>
     <blocks xmi:type="gvp:SubdialogBlock" xmi:id="_Xgd6QMXxEeqtd9sMo3IDtQ" name="Sarah" category="Subdialog" uri="workspace:///MergeComposer/Callflows/Sara.callflow"/>
-    <blocks xmi:type="gvp:PromptBlock" xmi:id="_1u8OkMXyEeqtd9sMo3IDtQ" name="Prompt1" category="Prompt">
+    <blocks xmi:type="gvp:PromptBlock" xmi:id="_1u8OkMXyEeqtd9sMo3IDtQ" name="prompt2" category="Prompt">
       <prompts xmi:type="datatypes_1:PromptItem" xmi:id="_6iEmYMXyEeqtd9sMo3IDtQ" name="Prompt1_PromptMsg1" value="'HI.WAV'" interpretAs="Audio" type="Variable" format="" armBaseUrl="" armPersonalityID="" armFileExt="" customInterpretAsItem=""/>
     </blocks>
     <links xmi:type="gvp:CallflowOutputLink" xmi:id="_Xjdj4MXxEeqtd9sMo3IDtQ" fromBlock="_UXE4YNz8EeKItrUHz40pEQ" toBlock="_Xgd6QMXxEeqtd9sMo3IDtQ"/>
