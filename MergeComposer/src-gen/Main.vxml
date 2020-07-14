@@ -36,26 +36,26 @@
 		}
   			
 		
-		AppState.APP_LANGUAGE = initSystemTypeVariable('APP_LANGUAGE','en-US');
 		AppState.APP_ASR_LANGUAGE = initSystemTypeVariable('APP_ASR_LANGUAGE','en-US');
-		AppState.PREV_APP_LANGUAGE = initSystemTypeVariable('PREV_APP_LANGUAGE','undefined');
-		AppState.PREV_APP_ASR_LANGUAGE = initSystemTypeVariable('PREV_APP_ASR_LANGUAGE','undefined');
-		AppState.GRAMMARFILEDIR = initSystemTypeVariable('GRAMMARFILEDIR','../Resources/Grammars');
-		AppState.VOXFILEDIR = initSystemTypeVariable('VOXFILEDIR','../Resources/Prompts');
-		AppState.SCRIPTSDIR = initSystemTypeVariable('SCRIPTSDIR','../Scripts');
+		AppState.APP_LANGUAGE = initSystemTypeVariable('APP_LANGUAGE','en-US');
+		AppState.APP_OPM = initSystemTypeVariable('APP_OPM',eval('('+session.connection.protocol.sip.requesturi['parameters']+')'));
+		AppState.COMPOSER_WSSTUBBING = initSystemTypeVariable('COMPOSER_WSSTUBBING','0');
+		AppState.EnableFCR = initSystemTypeVariable('EnableFCR',true);
 		AppState.EnableReports = initSystemTypeVariable('EnableReports',false);
 		AppState.EnableSNMP = initSystemTypeVariable('EnableSNMP',false);
-		AppState.LAST_EVENT_NAME = initSystemTypeVariable('LAST_EVENT_NAME','undefined');
-		AppState.LAST_EVENT_MSG = initSystemTypeVariable('LAST_EVENT_MSG','undefined');
-		AppState.LAST_EVENT_URL = initSystemTypeVariable('LAST_EVENT_URL','undefined');
+		AppState.GRAMMARFILEDIR = initSystemTypeVariable('GRAMMARFILEDIR','../Resources/Grammars');
 		AppState.LAST_EVENT_ELEMENT = initSystemTypeVariable('LAST_EVENT_ELEMENT','undefined');
 		AppState.LAST_EVENT_LINE = initSystemTypeVariable('LAST_EVENT_LINE','undefined');
-		AppState.EnableFCR = initSystemTypeVariable('EnableFCR',true);
-		AppState.COMPOSER_WSSTUBBING = initSystemTypeVariable('COMPOSER_WSSTUBBING','0');
-		AppState.APP_OPM = initSystemTypeVariable('APP_OPM',eval('('+session.connection.protocol.sip.requesturi['parameters']+')'));
+		AppState.LAST_EVENT_MSG = initSystemTypeVariable('LAST_EVENT_MSG','undefined');
+		AppState.LAST_EVENT_NAME = initSystemTypeVariable('LAST_EVENT_NAME','undefined');
+		AppState.LAST_EVENT_URL = initSystemTypeVariable('LAST_EVENT_URL','undefined');
+		AppState.OCS_Record = initSystemTypeVariable('OCS_Record',getCallflowOCSRecord());
 		AppState.OCS_RecordURI = initSystemTypeVariable('OCS_RecordURI',getCallflowRecordURI());
 		AppState.OCS_URI = initSystemTypeVariable('OCS_URI',getCallflowOCSURI());
-		AppState.OCS_Record = initSystemTypeVariable('OCS_Record',getCallflowOCSRecord());
+		AppState.PREV_APP_ASR_LANGUAGE = initSystemTypeVariable('PREV_APP_ASR_LANGUAGE','undefined');
+		AppState.PREV_APP_LANGUAGE = initSystemTypeVariable('PREV_APP_LANGUAGE','undefined');
+		AppState.SCRIPTSDIR = initSystemTypeVariable('SCRIPTSDIR','../Scripts');
+		AppState.VOXFILEDIR = initSystemTypeVariable('VOXFILEDIR','../Resources/Prompts');
 	</script>
 
 		
@@ -106,10 +106,23 @@
 		<subdialog name="SarahSubdialog" fetchhint="prefetch"  src="../src-gen/Sara.vxml">
     		<param name="varActionParentId" expr="''"/>
 			<filled>
-				<goto next="#Exit1" />
+				<goto next="#Prompt1" />
 			</filled>
 		</subdialog>
 		
+	</form>
+
+	<!-- This is the Prompt block -->
+	<form id="Prompt1">
+        
+    	<block name="Prompt1P0">
+  			<prompt bargein="true"  gvp:langexpr="AppState.APP_LANGUAGE">
+				<audio expr="getAudioURI('HI.WAV')"></audio>
+    		</prompt>
+		</block>
+    	<block>
+    		<goto next="#Exit1" />
+    	</block>
 	</form>
 
 </vxml>
